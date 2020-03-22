@@ -1,0 +1,20 @@
+<div>
+  <h2>Today's Matchups</h2>
+  <div>
+    <mat-card *ngFor="let matchup of matchups$ | async">
+      <div class="flex flex-column">
+        <div class="flex">
+          <img class="mr3"
+            [src]="'https://stats.nba.com/media/img/teams/logos/season/2019-20/' + matchup.awayTeam.abbreviation + '_logo.svg'">
+          <div class="mat-h3">{{matchup.awayTeam.teamName}}</div>
+        </div>
+        <div class="mat-h4">vs</div>
+        <div class="flex">
+          <img class="mr3"
+            [src]="'https://stats.nba.com/media/img/teams/logos/season/2019-20/' + matchup.homeTeam.abbreviation + '_logo.svg'">
+          <div class="mat-h3">{{matchup.homeTeam.teamName}}</div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
