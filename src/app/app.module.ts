@@ -1,22 +1,22 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatchupListComponent } from './matchups/matchup-list/matchup-list.component';
+import { MatchupsModule } from './matchups/matchups.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MatchupListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatchupsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
