@@ -9,7 +9,7 @@ import { MatchupsRoutingModule } from './matchups-routing.module';
 @NgModule({
   declarations: [
     MatchupListComponent,
-    MatchupDetailComponent
+    MatchupDetailComponent,
   ],
   imports: [
     CommonModule,

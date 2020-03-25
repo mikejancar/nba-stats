@@ -5,8 +5,8 @@ import { MatchupDetailComponent } from './matchup-detail/matchup-detail.componen
 import { MatchupListComponent } from './matchup-list/matchup-list.component';
 
 const routes: Routes = [
-  { path: 'matchups/:id', component: MatchupDetailComponent },
-  { path: 'matchups', component: MatchupListComponent }
+  { path: 'matchups/:scheduleDate/:id', component: MatchupDetailComponent },
+  { path: 'matchups/:scheduleDate', component: MatchupListComponent }
 ];
 
 @NgModule({
