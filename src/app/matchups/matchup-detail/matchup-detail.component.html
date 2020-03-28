@@ -1,3 +1,4 @@
-<div>
-
+<div class="flex flex-wrap" *ngIf="matchup$ | async as matchup">
+  <app-matchup-team class="mr2 mb4" [team]="matchup.awayTeam" [isHomeTeam]="false"></app-matchup-team>
+  <app-matchup-team [team]="matchup.homeTeam"></app-matchup-team>
 </div>

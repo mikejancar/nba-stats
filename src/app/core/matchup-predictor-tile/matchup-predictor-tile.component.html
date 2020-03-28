@@ -1,0 +1,28 @@
+<div class="f5 mv1 flex justify-between">
+  <span>
+    <ng-content></ng-content>
+  </span>
+  <span>&plusmn; {{predictor.comparisonRange}}</span>
+</div>
+<div class="flex justify-between bt bb ml2">
+  <span class="w-60 b">Was {{isHomeTeam ? 'Home' : 'Road'}} Team</span>
+  <span *ngIf="!isHomeTeam"
+    class="b dark-green">{{(1 - predictor.winningCharacteristics.wasHomeTeam) | percentage}}</span>
+  <span *ngIf="isHomeTeam" class="b dark-green">{{(predictor.winningCharacteristics.wasHomeTeam) | percentage}}</span>
+</div>
+<div class="flex justify-between bb ml2">
+  <span class="w-60 b">More Offensively Efficient</span>
+  <span class="b dark-green">{{predictor.winningCharacteristics.moreOffensivelyEfficient | percentage}}</span>
+</div>
+<div class="flex justify-between bb ml2">
+  <span class="w-60 b">More Defensively Efficient</span>
+  <span class="b dark-green">{{predictor.winningCharacteristics.moreDefensivelyEfficient | percentage}}</span>
+</div>
+<div class="flex justify-between bb ml2">
+  <span class="w-60 b">Higher Winning Percentage</span>
+  <span class="b dark-green">{{predictor.winningCharacteristics.hadHigherWinningPercentage | percentage}}</span>
+</div>
+<div class="flex justify-between bb ml2">
+  <span class="w-60 b">Average Point Gap</span>
+  <span class="b dark-green">{{predictor.winningCharacteristics.averagePointGap}}</span>
+</div>

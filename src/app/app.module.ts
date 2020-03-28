@@ -18,7 +18,6 @@ import { MatchupsModule } from './matchups/matchups.module';
     MatchupsModule,
     AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

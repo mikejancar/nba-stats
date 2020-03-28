@@ -1,0 +1,21 @@
+<div id="header" class="f3">{{isHomeTeam ? 'Home' : 'Away'}}</div>
+<mat-card>
+  <mat-card-content>
+    <div class="flex items-center">
+      <img class="mr3 mw3" [src]="apiUrl + '/public/assets/images/' + team.abbreviation + '_logo.svg'">
+      <div class="f3">{{team.teamName}}</div>
+    </div>
+    <app-advanced-stats-tile [stats]="team.advancedStats"></app-advanced-stats-tile>
+    <app-opponent-comparison-tile [statGaps]="team.statGaps"></app-opponent-comparison-tile>
+    <div class="f4 fw5 mv2">Matchup Predictors</div>
+    <app-matchup-predictor-tile [predictor]="team.predictors.winningPercentage" [isHomeTeam]="isHomeTeam">
+      Winning Percentage
+    </app-matchup-predictor-tile>
+    <app-matchup-predictor-tile [predictor]="team.predictors.offensiveEfficiency" [isHomeTeam]="isHomeTeam">
+      Offensive Efficiency
+    </app-matchup-predictor-tile>
+    <app-matchup-predictor-tile [predictor]="team.predictors.defensiveEfficiency" [isHomeTeam]="isHomeTeam">
+      DefensiveEfficiency
+    </app-matchup-predictor-tile>
+  </mat-card-content>
+</mat-card>

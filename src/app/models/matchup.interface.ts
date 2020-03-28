@@ -1,9 +1,9 @@
-import { Team } from './team.interface';
+import { MatchupTeam } from './matchup-team.interface';
 
 export interface Matchup {
   gameId: string;
-  homeTeam: Team;
-  awayTeam: Team;
+  homeTeam: MatchupTeam;
+  awayTeam: MatchupTeam;
   gameDate: Date;
   gameTime: string;
 }

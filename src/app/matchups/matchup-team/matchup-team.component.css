@@ -1,0 +1,9 @@
+#header {
+  margin-bottom: 1em;
+  min-width: 320px;
+  text-align: center;
+}
+
+mat-card {
+  min-width: 320px;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { FormattingService } from './formatting.service';
+import { FormattingService } from './core';
 
 @Component({
   selector: 'app-root',

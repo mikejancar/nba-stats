@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
-import { Matchup } from '../../models/matchup.interface';
-import { ScoreboardService } from '../../scoreboard.service';
+import { Matchup } from '../../models';
+import { MatchupsService } from '../matchups.service';
 
 @Component({
   selector: 'app-matchup-list',
@@ -13,22 +13,16 @@ import { ScoreboardService } from '../../scoreboard.service';
   styleUrls: ['./matchup-list.component.css']
 })
 export class MatchupListComponent implements OnInit {
-  matchupDate: Date;
   matchups$: Observable<Matchup[]>;
   apiUrl = environment.apiUrl;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private scoreboardService: ScoreboardService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private matchupsService: MatchupsService) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.pipe(
       tap((params: ParamMap) => {
         const dateFromRoute: string = params.get('scheduleDate');
-        const year = parseInt(dateFromRoute.substring(0, 4), 10);
-        const month = parseInt(dateFromRoute.substring(4, 6), 10);
-        const day = parseInt(dateFromRoute.substring(6), 10);
-
-        this.matchupDate = new Date(year, month, day);
-        this.matchups$ = this.scoreboardService.getMatchups(this.matchupDate);
+        this.matchups$ = this.matchupsService.getMatchups(dateFromRoute);
       })
     ).subscribe();
   }

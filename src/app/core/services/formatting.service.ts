@@ -11,4 +11,8 @@ export class FormattingService {
 
     return `${year}${month}${day}`;
   }
+
+  roundToNthDigit(num: number, numOfDigits: number): number {
+    return Math.round(num * Math.pow(10, numOfDigits)) / Math.pow(10, numOfDigits);
+  }
 }

@@ -1,0 +1,19 @@
+<div class="f4 fw5 mv2">Advanced Team Stats</div>
+<div class="flex justify-between bt bb">
+  <span class="w-60 b">Winning Percentage</span>
+  <span class="b dark-green">{{stats.winningPercentage}}</span>
+</div>
+<div class="flex justify-between bb">
+  <span class="w-60 b">Offensive Efficiency</span>
+  <span>
+    <span class="dark-gray mr2">({{stats.offensiveRank | rank}})</span>
+    <span class="b dark-green">{{stats.offensiveEfficiency}}</span>
+  </span>
+</div>
+<div class="flex justify-between bb">
+  <span class="w-60 b">Defensive Efficiency</span>
+  <span>
+    <span class="dark-gray mr2">({{stats.defensiveRank | rank}})</span>
+    <span class="b dark-green">{{stats.defensiveEfficiency}}</span>
+  </span>
+</div>
