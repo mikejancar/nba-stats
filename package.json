@@ -5,6 +5,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build -c production",
+    "deploy": "npm run build:prod && npm run publish",
+    "publish": "npm run publish:js && npm run publish:nonjs",
+    "publish:js": "aws2 --profile aws-admin s3 sync ./dist/nba-stats/ s3://nbastats.mikejancar.com --exclude \"*\" --include \"*.js\" --content-type application/javascript --delete",
+    "publish:nonjs": "aws2 --profile aws-admin s3 sync ./dist/nba-stats/ s3://nbastats.mikejancar.com --exclude \"*.js\" --delete",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

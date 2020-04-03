@@ -3,18 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
-import { FormattingService } from '../core';
 import { Matchup } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatchupsService {
-
-  constructor(
-    private httpClient: HttpClient,
-    private formattingService: FormattingService
-  ) { }
+  constructor(private httpClient: HttpClient) {}
 
   getMatchups(matchupDate: string): Observable<Matchup[]> {
     return this.httpClient.get<Matchup[]>(`${environment.apiUrl}/matchups/${matchupDate}`);
