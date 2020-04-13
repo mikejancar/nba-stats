@@ -9,10 +9,10 @@ import { FormattingService } from './core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router, private formattingService: FormattingService) { }
+  constructor(private router: Router, private formattingService: FormattingService) {}
 
   ngOnInit(): void {
-    const today = new Date(2020, 3, 6);
+    const today = new Date();
     this.router.navigate(['matchups', this.formattingService.formatDateForApiCall(today)]);
   }
 }
