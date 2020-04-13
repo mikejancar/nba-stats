@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://3.82.125.56:3000'
+  apiUrl: 'http://nbastatsapi.mikejancar.com:3000'
 };

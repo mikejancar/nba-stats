@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { take, tap } from 'rxjs/operators';
 
 import { Matchup } from '../../models';
 import { MatchupsService } from '../matchups.service';
@@ -13,15 +13,18 @@ import { MatchupsService } from '../matchups.service';
 export class MatchupDetailComponent implements OnInit {
   matchup$: Observable<Matchup>;
 
-  constructor(private activatedRoute: ActivatedRoute, private matchupsService: MatchupsService) { }
+  constructor(private activatedRoute: ActivatedRoute, private matchupsService: MatchupsService) {}
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.pipe(
-      tap((params: ParamMap) => {
-        const dateFromRoute: string = params.get('scheduleDate');
-        const gameId: string = params.get('gameId');
-        this.matchup$ = this.matchupsService.getMatchup(dateFromRoute, gameId);
-      })
-    ).subscribe();
+    this.activatedRoute.paramMap
+      .pipe(
+        take(1),
+        tap((params: ParamMap) => {
+          const dateFromRoute: string = params.get('scheduleDate');
+          const gameId: string = params.get('gameId');
+          this.matchup$ = this.matchupsService.getMatchup(dateFromRoute, gameId);
+        })
+      )
+      .subscribe();
   }
 }
